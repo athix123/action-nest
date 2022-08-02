@@ -15,7 +15,9 @@ jobs:
         run: npm ci
 
       - name: Test application
-        run: npm test
+        run: |
+          env: 
+            API_URL: ${{ secrets.API_URL }}
 
       - name: Build application
         run: npm run build
