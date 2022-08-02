@@ -14,13 +14,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Test application
-        run: |
-          env: 
-            API_URL: ${{ secrets.API_URL }}
+      #- name: Test application
+      #  run: |
+      #    env: 
+      #      API_URL: ${{ secrets.API_URL }}
 
       - name: Build application
         run: npm run build
+        env: 
+            API_URL: ${{ secrets.API_URL }}
 
       - name: Restart server application
         run: pm2 restart nest-js
